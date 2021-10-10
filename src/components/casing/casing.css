@@ -1,0 +1,23 @@
+.casing{
+    height:90%;
+    aspect-ratio: 1 / 2.16;
+    background-color: var(--color-neutral);
+    border-radius: 26px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.casing__bottom{
+    border-top-left-radius: 26px;
+    border-top-right-radius: 26px;
+    background-color: var(--color-basic);
+}
+
+@media screen and (max-width: 442px){
+    .casing{
+        height: 100%;
+        width: 100%;
+        border-radius: 0px;
+    }
+}

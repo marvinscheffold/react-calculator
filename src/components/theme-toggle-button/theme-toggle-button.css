@@ -1,0 +1,31 @@
+.theme-toggle-button{
+    background-color: var(--color-basic);
+    border-radius: 14px;
+    padding: 10px 0;
+    width:33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 36px auto;
+    border:0;
+}
+
+.theme-toggle-button:hover{
+    cursor: pointer;
+}
+
+.theme-toggle-button .theme-toggle-icon{
+    width:45%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.theme-toggle-button .theme-toggle-icon--active{
+    color: var(--color-font);
+}

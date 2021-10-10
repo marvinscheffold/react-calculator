@@ -1,0 +1,38 @@
+:root{
+    /**
+     * Raw Colors
+     */
+    --color-green: #4BD8C1;
+    --color-red: #CA6C6D;
+    --color-white: #FFFFFF;
+    --color-blue-dark: #23252D;
+    --color-blue-light: #2B2D37;
+    --color-blue-light-dark: #292B33;
+    --color-blue-grey: #3C3F4A;
+    --color-grey-dark: #e0e0e0;
+    --color-grey-light: #F9F9F9;
+    --color-grey-light-dark: #F4F1F2;
+
+    /**
+     * Usable Colors
+     */
+
+    --color-primary: var(--color-green);
+    --color-secondary: var(--color-red);
+    --color-font: var(--color-blue-light);
+    --color-accent: var(--color-grey-dark);
+    --color-page-background: var(--color-grey-light-dark);
+    --color-basic: var(--color-grey-light);
+    --color-basic--hover: var(--color-grey-light-dark);
+    --color-neutral: var(--color-white);
+}
+
+[data-theme="dark"]{
+    --color-font: var(--color-white);
+    --color-accent: var(--color-blue-grey);
+    --color-basic: var(--color-blue-light);
+    --color-basic--hover: var(--color-blue-light-dark);
+    --color-neutral: var(--color-blue-dark);
+}
+
+

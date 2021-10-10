@@ -1,0 +1,7 @@
+.bar{
+    height:5px;
+    width: 40%;
+    border-radius: 2px;
+    background-color: var(--color-accent);
+    margin: 0 auto 14px;
+}

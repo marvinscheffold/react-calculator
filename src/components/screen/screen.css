@@ -1,0 +1,22 @@
+.screen{
+    padding: 0px 28px 28px;
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+h1, h3{
+    color: var(--color-font);
+    margin:0;
+}
+
+h1{
+    font-size: 42px;
+}
+
+h3{
+    font-weight: normal;
+    margin-bottom: 8px;
+}

@@ -1,0 +1,22 @@
+@import "./variables.css";
+
+html, body, #root{
+  margin: 0;
+  height:100%;
+  width:100%;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif !important;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.app {
+  height:100%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(246,244,245);
+  background: linear-gradient(0deg, rgba(246,244,245,1) 9%, rgba(234,234,234,1) 100%);
+}
