@@ -6,15 +6,11 @@ import { EMPTY, Key } from "../../utils/keys";
 export default function Calculator() {
     const [pressedKeys, setPressedKeys] = useState<Key[]>([EMPTY]);
 
-    const input = pressedKeys.reduce<string>((acc: string, cur: Key) => {
-        return acc + cur.appearance;
-    }, "");
-
     const solution = calculate(
         getKeysToCalculate(pressedKeys).reduce<string>((acc: string, cur) => {
             return acc + cur.mathFunction;
         }, "")
-    );
+    ).toString();
 
     return (
         <Casing
@@ -25,17 +21,23 @@ export default function Calculator() {
             allClear={() => setPressedKeys([EMPTY])}
             equal={() =>
                 setPressedKeys([
-                    { ...EMPTY, appearance: solution, mathFunction: solution },
+                    {
+                        ...EMPTY,
+                        appearance: <span>{solution.replace(".", ",")}</span>,
+                        mathFunction: solution,
+                    },
                 ])
             }
-            input={input}
+            pressedKeys={pressedKeys}
             solution={solution}
         />
     );
 }
 
-const calculate = (calculatable: string) => {
-    return Function(`"use strict";return ${calculatable}`)();
+const calculate = (calculatable: string): string => {
+    return calculatable.length === 0
+        ? ""
+        : Function(`"use strict";return ${calculatable}`)();
 };
 
 const deleteLastKey = (pressedKeys: Key[]): Key[] => {
@@ -57,10 +59,10 @@ const getNextPressedKeys = (pressedKeys: Key[], key: Key): Key[] => {
 };
 
 const getKeysToCalculate = (pressedKeys: Key[]): Key[] => {
-    let keysToEvaluate = [...pressedKeys];
+    let keysToCalculate = [...pressedKeys];
     if (pressedKeys[pressedKeys.length - 1].isOperation) {
-        keysToEvaluate.pop();
-        return keysToEvaluate;
+        keysToCalculate.pop();
+        return keysToCalculate;
     }
-    return keysToEvaluate;
+    return keysToCalculate;
 };

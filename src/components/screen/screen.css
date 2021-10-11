@@ -5,6 +5,12 @@
     align-items: flex-end;
     justify-content: flex-end;
     flex-direction: column;
+    letter-spacing: 2px;
+}
+
+.screen i{
+    font-size: 50%;
+    margin: 3px 3px 0 3px
 }
 
 h1, h3{
@@ -14,6 +20,9 @@ h1, h3{
 
 h1{
     font-size: 42px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
 }
 
 h3{

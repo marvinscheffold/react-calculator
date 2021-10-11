@@ -3,9 +3,10 @@ import { ThemeToggleButton } from "../theme-toggle-button/theme-toggle-button";
 import Screen from "../screen/screen";
 import Keyboard from "../keyboard/keyboard";
 import Bar from "../bar/bar";
+import { Key } from "../../utils/keys";
 
 type Props = {
-    input: string;
+    pressedKeys: Key[];
     solution: string;
     addKey: Function;
     deleteLastKey: Function;
@@ -14,7 +15,7 @@ type Props = {
 };
 
 export default function Casing({
-    input,
+    pressedKeys,
     solution,
     addKey,
     deleteLastKey,
@@ -24,7 +25,7 @@ export default function Casing({
     return (
         <div className={"casing"}>
             <ThemeToggleButton />
-            <Screen input={input} solution={solution} />
+            <Screen pressedKeys={pressedKeys} solution={solution} />
             <div className={"casing__bottom"}>
                 <Keyboard
                     addKey={addKey}
