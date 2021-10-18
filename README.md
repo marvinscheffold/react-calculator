@@ -6,19 +6,21 @@ A beautifully designed calculator app with light and dark mode.
 
 Design by [Lucia Scott](https://dribbble.com/luciascott)
 
-##Live version
+## Live version
 
 [click here](https://marvinscheffold.github.io/react-calculator/)
 
-##Development
+## Development
 
 ```
 npm start
 ```
 
-##Deployment
+## Deployment
 
 ```
 npm run build
 npm run deploy
 ```
+
+
