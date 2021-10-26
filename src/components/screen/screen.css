@@ -1,5 +1,5 @@
 .screen{
-    padding: 0px 28px 28px;
+    padding: 0px 22px 22px;
     flex-grow: 1;
     display: flex;
     align-items: flex-end;
@@ -23,9 +23,21 @@ h1{
     display: inline-flex;
     align-items: center;
     font-weight: 600;
+    font-size: 4.8vh;
 }
 
 h3{
     font-weight: normal;
     margin-bottom: 8px;
+    font-size: 2.2vh;
+}
+
+@media screen and (max-width: 442px){
+    h1{
+        font-size: 6.6vh;
+    }
+
+    h3{
+        font-size: 3vh;
+    }
 }

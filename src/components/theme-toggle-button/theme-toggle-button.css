@@ -1,13 +1,29 @@
 .theme-toggle-button{
     background-color: var(--color-basic);
-    border-radius: 14px;
-    padding: 10px 0;
+    border-radius: 1.8vh;
+    padding: 1.4vh 0;
     width:30%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 36px auto;
+    margin: 5vh auto;
     border:0;
+    font-size: 2.2vh;
+    line-height: 1;
+}
+
+@media screen and (max-width: 442px){
+    .theme-toggle-button{
+        font-size: 3vh;
+    }
+}
+
+@media screen and (max-height: 768px) and (max-width: 442px){
+    .theme-toggle-button{
+        margin: 0px auto;
+        border-radius: 0px 0px 2.4vh 2.4vh;
+        padding: 2.4vh 0 2.4vh;
+    }
 }
 
 .theme-toggle-button:hover{
@@ -15,15 +31,12 @@
 }
 
 .theme-toggle-button .theme-toggle-icon{
-    width:45%;
+    width:43%;
     height:100%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-accent);
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 1;
 }
 
 .theme-toggle-button .theme-toggle-icon--active{

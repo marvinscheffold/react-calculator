@@ -1,16 +1,16 @@
 .casing{
-    height:90%;
+    height:85%;
     aspect-ratio: 1 / 2.16;
     background-color: var(--color-neutral);
-    border-radius: 26px;
+    border-radius: 4vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
 .casing__bottom{
-    border-top-left-radius: 26px;
-    border-top-right-radius: 26px;
+    border-top-left-radius: 4vh;
+    border-top-right-radius: 4vh;
     background-color: var(--color-basic);
 }
 
@@ -18,6 +18,8 @@
     .casing{
         height: 100%;
         width: 100%;
+        max-width: unset;
+        aspect-ratio: unset;
         border-radius: 0px;
     }
 }

@@ -1,12 +1,18 @@
 .button {
     border: 0;
-    border-radius: 8px;
+    border-radius: 12px;
     aspect-ratio: 1 / 1;
     color: var(--color-font);
-    font-size: 18px;
     font-weight: 600;
     font-family: "Inter", sans-serif;
     background-color: var(--color-basic);
+    font-size: 2.2vh;
+}
+
+@media screen and (max-width: 442px){
+    .button{
+        font-size: 3vh;
+    }
 }
 
 .button:hover{
