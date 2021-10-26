@@ -1,6 +1,6 @@
 @import "./variables.css";
 
-html, body, #root{
+html, body, #root, .fullscreen{
   margin: 0;
   height:100%;
   width:100%;
@@ -20,3 +20,4 @@ html, body, #root{
   background: rgb(246,244,245);
   background: linear-gradient(0deg, rgba(246,244,245,1) 9%, rgba(234,234,234,1) 100%);
 }
+

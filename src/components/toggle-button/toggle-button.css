@@ -1,44 +1,45 @@
-.theme-toggle-button{
+.toggle-button{
     background-color: var(--color-basic);
     border-radius: 1.8vh;
-    padding: 1.4vh 0;
-    width:30%;
+    width:31%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 5vh auto;
-    border:0;
-    font-size: 2.2vh;
+}
+
+@media screen and (max-height: 768px) and (max-width: 442px){
+    .toggle-button{
+        margin: 0px auto;
+        border-radius: 0px 0px 2.4vh 2.4vh;
+        padding: 1.8vh 0 1.8vh;
+    }
+}
+
+.toggle-button .toggle-button-half{
+    width:43%;
+    height:100%;
+    padding: 1.6vh 0 1.4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4vh;
     line-height: 1;
+    color: var(--color-accent);
+    border:0;
+    background-color: transparent;
+}
+
+.toggle-button .toggle-button-half:hover{
+    cursor: pointer;
 }
 
 @media screen and (max-width: 442px){
-    .theme-toggle-button{
+    .toggle-button .toggle-button-half{
         font-size: 3vh;
     }
 }
 
-@media screen and (max-height: 768px) and (max-width: 442px){
-    .theme-toggle-button{
-        margin: 0px auto;
-        border-radius: 0px 0px 2.4vh 2.4vh;
-        padding: 2.4vh 0 2.4vh;
-    }
-}
-
-.theme-toggle-button:hover{
-    cursor: pointer;
-}
-
-.theme-toggle-button .theme-toggle-icon{
-    width:43%;
-    height:100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-accent);
-}
-
-.theme-toggle-button .theme-toggle-icon--active{
+.toggle-button .toggle-button-half--active{
     color: var(--color-font);
 }

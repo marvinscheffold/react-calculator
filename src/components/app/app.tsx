@@ -1,27 +1,51 @@
 import "./app.css";
 import Calculator from "../calculator/calculator";
-import React, { useState } from "react";
-
-export const ThemContext = React.createContext<ThemeContextType>({
-    theme: "light",
-    setTheme: () => {},
-});
+import React, { useEffect, useState } from "react";
+import {
+    FullScreen,
+    FullScreenHandle,
+    useFullScreenHandle,
+} from "react-full-screen";
 
 type ThemeContextType = {
     theme: string;
     setTheme: Function;
 };
 
-function App() {
-    const [theme, setTheme] = useState("light");
+type FullScreenContextType = {
+    isFullScreen: boolean;
+    setIsFullScreen: Function;
+};
+
+export const ThemContext = React.createContext<ThemeContextType>({
+    theme: "light",
+    setTheme: () => {},
+});
+
+export const FullScreenContext = React.createContext<FullScreenContextType>(
+    {} as FullScreenContextType
+);
+
+export function App() {
+    const [theme, setTheme] = useState("dark");
+    const [isFullScreen, setIsFullScreen] = useState(false);
+    const handle = useFullScreenHandle();
+
+    useEffect(() => {
+        isFullScreen ? handle.enter() : handle.exit();
+    }, [isFullScreen]);
 
     return (
-        <div className="app" data-theme={theme}>
-            <ThemContext.Provider value={{ theme, setTheme }}>
-                <Calculator />
-            </ThemContext.Provider>
-        </div>
+        <FullScreen handle={handle}>
+            <div className="app" data-theme={theme}>
+                <ThemContext.Provider value={{ theme, setTheme }}>
+                    <FullScreenContext.Provider
+                        value={{ isFullScreen, setIsFullScreen }}
+                    >
+                        <Calculator />
+                    </FullScreenContext.Provider>
+                </ThemContext.Provider>
+            </div>
+        </FullScreen>
     );
 }
-
-export default App;

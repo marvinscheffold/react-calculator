@@ -1,5 +1,5 @@
 .screen{
-    padding: 0px 22px 22px;
+    padding: 0px 3vh 3.4vh;
     flex-grow: 1;
     display: flex;
     align-items: flex-end;
@@ -8,9 +8,16 @@
     letter-spacing: 2px;
 }
 
+@media screen and (max-height: 768px) and (max-width: 442px){
+    .screen{
+        padding: 0px 4.2vh 4.6vh;
+    }
+}
+
 .screen i{
     font-size: 50%;
-    margin: 3px 3px 0 3px
+    margin: 3px 6px 0 6px;
+    -webkit-text-stroke: 1px var(--color-neutral);
 }
 
 h1, h3{
@@ -19,17 +26,16 @@ h1, h3{
 }
 
 h1{
-    font-size: 42px;
     display: inline-flex;
     align-items: center;
     font-weight: 600;
-    font-size: 4.8vh;
+    font-size: 5vh;
 }
 
 h3{
-    font-weight: normal;
+    font-weight: 400;
     margin-bottom: 8px;
-    font-size: 2.2vh;
+    font-size: 2.4vh;
 }
 
 @media screen and (max-width: 442px){

@@ -1,8 +1,15 @@
 .keyboard{
     width:100%;
     height:auto;
-    padding: 22px;
+    padding: 3vh;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 12px;
+    grid-gap: 1.8vh;
+}
+
+@media screen and (max-height: 768px) and (max-width: 442px){
+    .keyboard{
+        padding: 4.2vh;
+        grid-gap: 2.6vh;
+    }
 }

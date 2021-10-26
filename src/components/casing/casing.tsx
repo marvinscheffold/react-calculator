@@ -1,5 +1,5 @@
 import "./casing.css";
-import { ThemeToggleButton } from "../theme-toggle-button/theme-toggle-button";
+import { ToggleButton } from "../toggle-button/toggle-button";
 import Screen from "../screen/screen";
 import Keyboard from "../keyboard/keyboard";
 import Bar from "../bar/bar";
@@ -24,7 +24,7 @@ export default function Casing({
 }: Props) {
     return (
         <div className={"casing"}>
-            <ThemeToggleButton />
+            <ToggleButton />
             <Screen pressedKeys={pressedKeys} solution={solution} />
             <div className={"casing__bottom"}>
                 <Keyboard
