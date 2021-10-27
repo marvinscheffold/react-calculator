@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 import Casing from "../casing/casing";
-import { EMPTY, Key, ZERO } from "../../utils/keys";
+import { Key, ZERO } from "../../utils/keys";
 import { stringToKey } from "../../utils/string-to-key";
 
 export default function Calculator() {
-    const [pressedKeys, setPressedKeys] = useState<Key[]>([EMPTY]);
+    const [pressedKeys, setPressedKeys] = useState<Key[]>([]);
 
     const solution = calculate(
         getKeysToCalculate(pressedKeys).reduce<string>((acc: string, cur) => {
@@ -19,7 +19,7 @@ export default function Calculator() {
                 setPressedKeys(getNextPressedKeys(pressedKeys, key))
             }
             deleteLastKey={() => setPressedKeys(deleteLastKey(pressedKeys))}
-            allClear={() => setPressedKeys([EMPTY])}
+            allClear={() => setPressedKeys([])}
             equal={() => setPressedKeys(solutionToKeys(solution))}
             pressedKeys={pressedKeys}
             solution={solution}
@@ -34,50 +34,58 @@ const calculate = (calculatable: string): string => {
 };
 
 const solutionToKeys = (solution: string): Key[] => {
-    if (solution.length === 0) return [EMPTY];
+    if (solution.length === 0) return [];
     return solution.split("").map((string: string) => stringToKey(string));
 };
 
 const deleteLastKey = (pressedKeys: Key[]): Key[] => {
     let nextPressedKeys = [...pressedKeys];
 
-    if (pressedKeys.length > 1) nextPressedKeys.pop();
+    if (pressedKeys.length >= 1) nextPressedKeys.pop();
+
+    if (pressedKeys.length === 2 && pressedKeys[0].isOperation) return [];
 
     return nextPressedKeys;
 };
 
-const getNextPressedKeys = (currentPressedKeys: Key[], key: Key): Key[] => {
+const getNextPressedKeys = (currentPressedKeys: Key[], newKey: Key): Key[] => {
     let nextPressedKeys = [...currentPressedKeys];
 
     // If it´s the first key-stroke only add key if it can be pressed first
-    if (currentPressedKeys.length <= 1 && !key.canBePressedFirst)
+    if (currentPressedKeys.length === 0 && !newKey.canBePressedFirst)
         return nextPressedKeys;
 
-    // If the first key is a zero and new key is a zero, don´t add the zero
+    // If first pressed key is a ZERO replace it with newKey
     if (
-        currentPressedKeys.length <= 2 &&
-        currentPressedKeys[currentPressedKeys.length - 1].mathFunction ===
-            ZERO.mathFunction &&
-        key.mathFunction === ZERO.mathFunction
+        currentPressedKeys.length === 1 &&
+        currentPressedKeys[0].id === ZERO.id &&
+        !newKey.isOperation
     ) {
+        nextPressedKeys[nextPressedKeys.length - 1] = newKey;
         return nextPressedKeys;
     }
 
+    // If last pressed key is operation and new key is operation, replace it
     if (
+        currentPressedKeys.length >= 1 &&
         currentPressedKeys[currentPressedKeys.length - 1].isOperation &&
-        key.isOperation
+        newKey.isOperation
     ) {
-        // If last pressed key is operation and new key is operation, replace it
-        nextPressedKeys[nextPressedKeys.length - 1] = key;
+        nextPressedKeys[nextPressedKeys.length - 1] = newKey;
         return nextPressedKeys;
     }
 
-    nextPressedKeys.push(key);
+    // If a comma has already been pressed prevent
+
+    nextPressedKeys.push(newKey);
     return nextPressedKeys;
 };
 
+// Remove trailing operations
 const getKeysToCalculate = (pressedKeys: Key[]): Key[] => {
     let keysToCalculate = [...pressedKeys];
+
+    if (pressedKeys.length === 0) return pressedKeys;
 
     if (pressedKeys[pressedKeys.length - 1].isOperation) {
         keysToCalculate.pop();
