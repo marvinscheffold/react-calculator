@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Casing from "../casing/casing";
-import { Key, ZERO } from "../../utils/keys";
+import { Key, MINUS, ZERO } from "../../utils/keys";
 import { stringToKey } from "../../utils/string-to-key";
 
 export default function Calculator() {
@@ -61,7 +61,16 @@ const getNextPressedKeys = (currentPressedKeys: Key[], newKey: Key): Key[] => {
         currentPressedKeys[0].id === ZERO.id &&
         !newKey.isOperation
     ) {
-        nextPressedKeys[nextPressedKeys.length - 1] = newKey;
+        return [newKey];
+    }
+
+    // If first pressed key is minus and new key
+    // is operation but not minus do nothing
+    if (
+        currentPressedKeys.length === 1 &&
+        currentPressedKeys[0].isOperation &&
+        newKey.isOperation
+    ) {
         return nextPressedKeys;
     }
 

@@ -101,7 +101,7 @@ export const MINUS: Key = {
     appearance: <i className="fas fa-minus"></i>,
     mathFunction: "-",
     isOperation: true,
-    canBePressedFirst: false,
+    canBePressedFirst: true,
 };
 
 export const TIMES: Key = {
