@@ -1,10 +1,11 @@
 # React Calculator App
 
-A beautifully designed calculator app with light and dark mode.
+A beautifully designed calculator app with light and dark mode and full-screen support.
 
-![Two beautiful calculators](https://cdn.dribbble.com/users/6410682/screenshots/14709020/media/afabf7854adc663582e3d6347ac7b6c9.png "Calculator Design")
+![Two beautiful calculators](./public/img/screenshot.png "Calculator Design")
 
-Design by [Lucia Scott](https://dribbble.com/luciascott)
+Original Design by [Lucia Scott](https://dribbble.com/luciascott) <br>
+Fullscreen support by me
 
 ## Live version
 
@@ -22,4 +23,5 @@ npm start
 npm run build
 npm run deploy
 ```
+
 
