@@ -85,7 +85,7 @@ const getNextPressedKeys = (currentPressedKeys: Key[], newKey: Key): Key[] => {
     }
 
     // If a comma has already been pressed prevent
-    // todo implement
+    // todo: Prevent multiple commas
 
     nextPressedKeys.push(newKey);
     return nextPressedKeys;
