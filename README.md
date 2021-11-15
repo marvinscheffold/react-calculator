@@ -20,8 +20,10 @@ npm start
 ## Deployment
 
 ```
-npm run build
 npm run deploy
 ```
+
+
+
 
 
