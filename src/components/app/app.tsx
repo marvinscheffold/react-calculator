@@ -1,11 +1,7 @@
 import "./app.css";
 import Calculator from "../calculator/calculator";
 import React, { useEffect, useState } from "react";
-import {
-    FullScreen,
-    FullScreenHandle,
-    useFullScreenHandle,
-} from "react-full-screen";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 type ThemeContextType = {
     theme: string;

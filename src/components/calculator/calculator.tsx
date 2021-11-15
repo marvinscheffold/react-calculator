@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Casing from "../casing/casing";
-import { Key, MINUS, ZERO } from "../../utils/keys";
+import { Key, ZERO } from "../../utils/keys";
 import { stringToKey } from "../../utils/string-to-key";
 
 export default function Calculator() {
@@ -85,6 +85,7 @@ const getNextPressedKeys = (currentPressedKeys: Key[], newKey: Key): Key[] => {
     }
 
     // If a comma has already been pressed prevent
+    // todo implement
 
     nextPressedKeys.push(newKey);
     return nextPressedKeys;
