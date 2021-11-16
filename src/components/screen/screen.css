@@ -23,15 +23,15 @@ h1, h3{
 
 h1{
     font-weight: 600;
-    font-size: 5vh;
-    letter-spacing: 0.3vh;
+    font-size: 5.4vh;
+    letter-spacing: 0.32vh;
 }
 
 h3{
     font-weight: 400;
-    margin-bottom: 1.3vh;
+    margin-bottom: 1.6vh;
     font-size: 2.4vh;
-    letter-spacing: 0.20vh;
+    letter-spacing: 0.30vh;
 }
 
 .screen i{
@@ -44,7 +44,7 @@ h3{
 }
 
 .screen h1 i{
-    line-height: 5vh;
+    line-height: 5.4vh;
     margin: 0 0.55vh;
     -webkit-text-stroke: 0.1vh var(--color-neutral);
 }
