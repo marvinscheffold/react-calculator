@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 import Casing from "../casing/casing";
-import { Key, ZERO } from "../../utils/keys";
+import { Key, ZERO, MINUS } from "../../utils/keys";
 import { stringToKey } from "../../utils/string-to-key";
 
 export default function Calculator() {
     const [pressedKeys, setPressedKeys] = useState<Key[]>([]);
+    const [prevPressedKeys, setPrevPressedKeys] = useState<Key[]>([]);
 
     const solution = calculate(
         getKeysToCalculate(pressedKeys).reduce<string>((acc: string, cur) => {
@@ -22,7 +23,7 @@ export default function Calculator() {
             allClear={() => setPressedKeys([])}
             equal={() => setPressedKeys(solutionToKeys(solution))}
             pressedKeys={pressedKeys}
-            solution={solution}
+            prevPressedKeys={prevPressedKeys}
         />
     );
 }
@@ -68,7 +69,7 @@ const getNextPressedKeys = (currentPressedKeys: Key[], newKey: Key): Key[] => {
     // is operation but not minus do nothing
     if (
         currentPressedKeys.length === 1 &&
-        currentPressedKeys[0].isOperation &&
+        currentPressedKeys[0].id === MINUS.id &&
         newKey.isOperation
     ) {
         return nextPressedKeys;

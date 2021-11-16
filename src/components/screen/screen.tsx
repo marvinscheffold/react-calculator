@@ -1,22 +1,17 @@
 import "./screen.css";
 import { Key } from "../../utils/keys";
-import { stringToKey } from "../../utils/string-to-key";
 import React from "react";
 
 type Props = {
     pressedKeys: Key[];
-    solution: string;
+    prevPressedKeys: Key[];
 };
 
-export default function Screen({ pressedKeys, solution }: Props) {
-    const solutionAsKeys = solution
-        .split("")
-        .map((string: string) => stringToKey(string));
-
+export default function Screen({ pressedKeys, prevPressedKeys }: Props) {
     return (
         <div className={"screen"}>
             <h3>
-                {solutionAsKeys.map((key, index) =>
+                {prevPressedKeys.map((key, index) =>
                     React.cloneElement(key.appearance, { key: index })
                 )}
             </h3>

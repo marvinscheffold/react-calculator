@@ -7,7 +7,7 @@ import { Key } from "../../utils/keys";
 
 type Props = {
     pressedKeys: Key[];
-    solution: string;
+    prevPressedKeys: Key[];
     addKey: Function;
     deleteLastKey: Function;
     allClear: Function;
@@ -16,7 +16,7 @@ type Props = {
 
 export default function Casing({
     pressedKeys,
-    solution,
+    prevPressedKeys,
     addKey,
     deleteLastKey,
     allClear,
@@ -25,7 +25,10 @@ export default function Casing({
     return (
         <div className={"casing"}>
             <ToggleButton />
-            <Screen pressedKeys={pressedKeys} solution={solution} />
+            <Screen
+                pressedKeys={pressedKeys}
+                prevPressedKeys={prevPressedKeys}
+            />
             <div className={"casing__bottom"}>
                 <Keyboard
                     addKey={addKey}
