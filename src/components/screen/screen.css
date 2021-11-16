@@ -1,5 +1,5 @@
 .screen{
-    padding: 0px 3vh 3.4vh;
+    padding: 0px 3vh 3.6vh;
     flex-grow: 1;
     display: flex;
     align-items: flex-end;
@@ -24,33 +24,34 @@ h1, h3{
 h1{
     font-weight: 600;
     font-size: 5vh;
-    letter-spacing: 0.28vh;
+    letter-spacing: 0.3vh;
 }
 
 h3{
     font-weight: 400;
-    margin-bottom: 1.1vh;
+    margin-bottom: 1.3vh;
     font-size: 2.4vh;
-    letter-spacing: 0.18vh;
+    letter-spacing: 0.20vh;
 }
 
 .screen i{
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     font-size: 46%;
 
 }
 
 .screen h1 i{
     line-height: 5vh;
-    margin: 0 0.45vh;
+    margin: 0 0.55vh;
     -webkit-text-stroke: 0.1vh var(--color-neutral);
 }
 
 .screen h3 i{
     line-height: 2.4vh;
-    margin: 0 0.30vh;
+    margin: 0 0.75vh;
 }
 
 @media screen and (max-width: 442px){

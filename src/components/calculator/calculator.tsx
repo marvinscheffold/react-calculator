@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Casing from "../casing/casing";
-import { Key, ZERO, MINUS } from "../../utils/keys";
+import { Key, ZERO, MINUS, EQUALS } from "../../utils/keys";
 import { stringToKey } from "../../utils/string-to-key";
 
 export default function Calculator() {
@@ -14,14 +14,28 @@ export default function Calculator() {
         }, "")
     ).toString();
 
+    const onAddKey = (key: Key) => {
+        setPressedKeys(getNextPressedKeys(pressedKeys, key));
+    };
+
+    const onDeleteLastKey = () => setPressedKeys(deleteLastKey(pressedKeys));
+
+    const onAllClear = () => {
+        setPrevPressedKeys([]);
+        setPressedKeys([]);
+    };
+
+    const onEqual = () => {
+        setPrevPressedKeys([...pressedKeys, EQUALS]);
+        setPressedKeys(solutionToKeys(solution));
+    };
+
     return (
         <Casing
-            addKey={(key: Key) =>
-                setPressedKeys(getNextPressedKeys(pressedKeys, key))
-            }
-            deleteLastKey={() => setPressedKeys(deleteLastKey(pressedKeys))}
-            allClear={() => setPressedKeys([])}
-            equal={() => setPressedKeys(solutionToKeys(solution))}
+            onAddKey={onAddKey}
+            onDeleteLastKey={onDeleteLastKey}
+            onAllClear={onAllClear}
+            onEqual={onEqual}
             pressedKeys={pressedKeys}
             prevPressedKeys={prevPressedKeys}
         />

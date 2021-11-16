@@ -8,19 +8,19 @@ import { Key } from "../../utils/keys";
 type Props = {
     pressedKeys: Key[];
     prevPressedKeys: Key[];
-    addKey: Function;
-    deleteLastKey: Function;
-    allClear: Function;
-    equal: Function;
+    onAddKey: Function;
+    onDeleteLastKey: Function;
+    onAllClear: Function;
+    onEqual: Function;
 };
 
 export default function Casing({
     pressedKeys,
     prevPressedKeys,
-    addKey,
-    deleteLastKey,
-    allClear,
-    equal,
+    onAddKey,
+    onDeleteLastKey,
+    onAllClear,
+    onEqual,
 }: Props) {
     return (
         <div className={"casing"}>
@@ -31,10 +31,10 @@ export default function Casing({
             />
             <div className={"casing__bottom"}>
                 <Keyboard
-                    addKey={addKey}
-                    deleteLastKey={deleteLastKey}
-                    allClear={allClear}
-                    equal={equal}
+                    onAddKey={onAddKey}
+                    onDeleteLastKey={onDeleteLastKey}
+                    onAllClear={onAllClear}
+                    onEqual={onEqual}
                 />
                 <Bar />
             </div>
