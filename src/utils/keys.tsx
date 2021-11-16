@@ -9,6 +9,15 @@ export type Key = {
     keyStrings: string[];
 };
 
+export let TEMPLATE: Key = {
+    id: "TEMPLATE",
+    appearance: <span></span>,
+    mathFunction: "",
+    isOperation: false,
+    canBePressedFirst: true,
+    keyStrings: [],
+};
+
 export const ONE: Key = {
     id: "ONE",
     appearance: <span>1</span>,
@@ -132,7 +141,7 @@ export const COMMA: Key = {
     mathFunction: ".",
     isOperation: true,
     canBePressedFirst: false,
-    keyStrings: [","],
+    keyStrings: [",", "."],
 };
 
 export const DIVIDE: Key = {

@@ -1,11 +1,10 @@
 import { useState } from "react";
-
 import Casing from "../casing/casing";
 import { Key, ZERO, MINUS, EQUALS } from "../../utils/keys";
 import { stringToKey } from "../../utils/string-to-key";
 
 export default function Calculator() {
-    const [pressedKeys, setPressedKeys] = useState<Key[]>([]);
+    const [pressedKeys, setPressedKeys] = useState<Key[]>([ZERO]);
     const [prevPressedKeys, setPrevPressedKeys] = useState<Key[]>([]);
 
     const solution = calculate(
@@ -18,16 +17,27 @@ export default function Calculator() {
         setPressedKeys(getNextPressedKeys(pressedKeys, key));
     };
 
-    const onDeleteLastKey = () => setPressedKeys(deleteLastKey(pressedKeys));
+    const onDeleteLastKey = () => {
+        if (pressedKeys.length <= 1) {
+            onAllClear();
+            return;
+        }
+
+        const nextPressedKeys = [...pressedKeys];
+        nextPressedKeys.pop();
+        setPressedKeys(nextPressedKeys);
+    };
 
     const onAllClear = () => {
         setPrevPressedKeys([]);
-        setPressedKeys([]);
+        setPressedKeys([ZERO]);
     };
 
     const onEqual = () => {
+        if (pressedKeys.length <= 1) return;
+
         setPrevPressedKeys([...pressedKeys, EQUALS]);
-        setPressedKeys(solutionToKeys(solution));
+        setPressedKeys([stringToKey(solution)]);
     };
 
     return (
@@ -46,21 +56,6 @@ const calculate = (calculatable: string): string => {
     return calculatable.length === 0
         ? ""
         : Function(`;return ${calculatable}`)();
-};
-
-const solutionToKeys = (solution: string): Key[] => {
-    if (solution.length === 0) return [];
-    return solution.split("").map((string: string) => stringToKey(string));
-};
-
-const deleteLastKey = (pressedKeys: Key[]): Key[] => {
-    let nextPressedKeys = [...pressedKeys];
-
-    if (pressedKeys.length >= 1) nextPressedKeys.pop();
-
-    if (pressedKeys.length === 2 && pressedKeys[0].isOperation) return [];
-
-    return nextPressedKeys;
 };
 
 const getNextPressedKeys = (currentPressedKeys: Key[], newKey: Key): Key[] => {
