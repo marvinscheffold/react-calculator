@@ -1,7 +1,7 @@
 import "./screen.css";
 import { Key } from "../../utils/keys";
 import React from "react";
-import { DynamicTextSizer } from "./dynamic-text-sizer";
+import { TextSizeByStringLength } from "./text-size-by-string-length";
 
 type Props = {
     pressedKeys: Key[];
@@ -17,7 +17,7 @@ export default function Screen({ pressedKeys, prevPressedKeys }: Props) {
                 )}
             </h3>
             <h1>
-                <DynamicTextSizer
+                <TextSizeByStringLength
                     minPercent={50}
                     changePerChar={10}
                     startAtChar={8}
@@ -27,7 +27,7 @@ export default function Screen({ pressedKeys, prevPressedKeys }: Props) {
                             key: index,
                         })
                     )}
-                </DynamicTextSizer>
+                </TextSizeByStringLength>
             </h1>
         </div>
     );

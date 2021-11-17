@@ -8,7 +8,7 @@ type Props = {
     startAtChar?: number;
 };
 
-export function DynamicTextSizer({
+export function TextSizeByStringLength({
     children,
     maxPercent = 100,
     minPercent,
@@ -47,7 +47,7 @@ const getNewFontSizeInPercent = (
     changePerChar: number,
     startAtChar: number,
     currentNumberOfChars: number
-) => {
+): number => {
     const charsToConsider = Math.max(0, currentNumberOfChars - startAtChar);
     const fontSizeInPercent = Math.max(
         minPercent,
