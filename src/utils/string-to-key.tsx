@@ -13,11 +13,11 @@ export const stringToKey = (string: string): Key => {
     let appearanceReactElements = [];
     let mathFunctions = [];
 
-    for (const char of chars) {
+    for (const [index, char] of Object.entries(chars)) {
         for (const [, key] of Object.entries(keys)) {
             if (key.mathFunction === char) {
                 appearanceReactElements.push(
-                    React.cloneElement(key.appearance, { key: Math.random() })
+                    React.cloneElement(key.appearance, { key: index + key.id })
                 );
                 mathFunctions.push(key.mathFunction);
             }
