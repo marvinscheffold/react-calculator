@@ -20,15 +20,26 @@ export function DynamicTextSizer({
         minPercent,
         changePerChar,
         startAtChar,
-        children.length
+        getCurrentNumberOfChars(children)
     );
-
-    console.log(children, children.length, fontSizeInPercent);
 
     return (
         <span style={{ fontSize: `${fontSizeInPercent}%` }}>{children}</span>
     );
 }
+
+const getCurrentNumberOfChars = (children: ReactElement[]): number => {
+    let returnable = 0;
+    children.forEach((child) => {
+        if (child.props.children) {
+            returnable += child.props.children.length;
+        } else {
+            returnable += 1;
+        }
+    });
+
+    return returnable;
+};
 
 const getNewFontSizeInPercent = (
     maxPercent: number,

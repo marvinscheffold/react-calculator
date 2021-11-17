@@ -9,8 +9,6 @@ type Props = {
 };
 
 export default function Screen({ pressedKeys, prevPressedKeys }: Props) {
-    console.log(pressedKeys);
-
     return (
         <div className={"screen"}>
             <h3>
