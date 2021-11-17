@@ -1,5 +1,5 @@
 .screen{
-    padding: 0px 3vh 3.6vh;
+    padding: 0px 2.8vh 2.8vh;
     flex-grow: 1;
     display: flex;
     align-items: flex-end;
@@ -9,49 +9,40 @@
 
 @media screen and (max-height: 768px) and (max-width: 442px){
     .screen{
-        padding: 0px 4.2vh 4.6vh;
+        padding: 0px 4.2vh 4.2vh;
     }
 }
 
 h1, h3{
     color: var(--color-font);
     margin:0;
-    display: inline-flex;
-    align-items: center;
-    line-height: 1;
+    letter-spacing: 0.30vh;
 }
 
 h1{
     font-weight: 600;
-    font-size: 5.4vh;
-    letter-spacing: 0.32vh;
+    font-size: 5.2vh;
 }
 
 h3{
     font-weight: 400;
-    margin-bottom: 1.6vh;
-    font-size: 2.4vh;
-    letter-spacing: 0.30vh;
-}
-
-.screen i{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 46%;
-
+    font-size: 2.2vh;
+    margin-bottom: 1vh;
 }
 
 .screen h1 i{
-    line-height: 5.4vh;
-    margin: 0 0.55vh;
-    -webkit-text-stroke: 0.1vh var(--color-neutral);
+    transform: scale(0.5);
+    -webkit-text-stroke: 0.3vh var(--color-neutral);
 }
 
 .screen h3 i{
-    line-height: 2.4vh;
-    margin: 0 0.75vh;
+    transform: scale(0.8);
+    -webkit-text-stroke: 0.15vh var(--color-neutral);
+    margin:0 0.5vh;
+}
+
+.screen h3 i:last-child{
+    margin-right: 0;
 }
 
 @media screen and (max-width: 442px){
@@ -59,12 +50,7 @@ h3{
         font-size: 6.6vh;
     }
     h3{
-        font-size: 3vh;
-    }
-    .screen h1 i{
-        line-height: 6.6vh;
-    }
-    .screen h3 i{
-        line-height: 3vh;
+        font-size: 2.9vh;
+        margin-bottom: 1.45vh
     }
 }
