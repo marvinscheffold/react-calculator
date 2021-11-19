@@ -1,7 +1,7 @@
 import "./screen.css";
 import { Key } from "../../utils/keys";
 import React from "react";
-import { TextSizeByStringLength } from "./text-size-by-string-length";
+import { ReactFontSizeByTextLength } from "./react-font-size-by-text-length";
 
 type Props = {
     pressedKeys: Key[];
@@ -17,17 +17,17 @@ export default function Screen({ pressedKeys, prevPressedKeys }: Props) {
                 )}
             </h3>
             <h1>
-                <TextSizeByStringLength
-                    minPercent={50}
-                    changePerChar={10}
-                    startAtChar={8}
+                <ReactFontSizeByTextLength
+                    changePerChar={8}
+                    startAtChar={10}
+                    stopAtChar={12}
                 >
                     {pressedKeys.map((key, index) =>
                         React.cloneElement(key.appearance, {
                             key: index,
                         })
                     )}
-                </TextSizeByStringLength>
+                </ReactFontSizeByTextLength>
             </h1>
         </div>
     );
