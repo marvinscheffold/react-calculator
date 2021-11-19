@@ -1,26 +1,31 @@
 import React, { ReactElement } from "react";
 
 type Props = {
-    children: ReactElement[];
+    children: ReactElement[] | ReactElement;
     maxPercent?: number;
-    minPercent: number;
+    minPercent?: number;
     changePerChar: number;
     startAtChar?: number;
+    stopAtChar?: number;
 };
 
-export function TextSizeByStringLength({
+export function ReactFontSizeByTextLength({
     children,
     maxPercent = 100,
-    minPercent,
+    minPercent = 0,
     changePerChar,
     startAtChar = 0,
+    stopAtChar = Infinity,
 }: Props) {
     const fontSizeInPercent = getNewFontSizeInPercent(
         maxPercent,
         minPercent,
         changePerChar,
         startAtChar,
-        getCurrentNumberOfChars(children)
+        stopAtChar,
+        Array.isArray(children)
+            ? getNumberOfCharsForMultipleChildren(children)
+            : getNumberOfCharsForSingleChild(children)
     );
 
     return (
@@ -28,7 +33,13 @@ export function TextSizeByStringLength({
     );
 }
 
-const getCurrentNumberOfChars = (children: ReactElement[]): number => {
+const getNumberOfCharsForSingleChild = (child: ReactElement): number => {
+    return child.props.children.length;
+};
+
+const getNumberOfCharsForMultipleChildren = (
+    children: ReactElement[]
+): number => {
     let returnable = 0;
     children.forEach((child) => {
         if (child.props.children) {
@@ -46,12 +57,19 @@ const getNewFontSizeInPercent = (
     minPercent: number,
     changePerChar: number,
     startAtChar: number,
-    currentNumberOfChars: number
+    stopAtChar: number,
+    numberOfChars: number
 ): number => {
-    const charsToConsider = Math.max(0, currentNumberOfChars - startAtChar);
+    const numberOfCharsAdjusted = Math.min(numberOfChars, stopAtChar);
+
+    const numberOfCharToConsiderForCalculation = Math.max(
+        0,
+        numberOfCharsAdjusted - (startAtChar - 1)
+    );
+
     const fontSizeInPercent = Math.max(
         minPercent,
-        maxPercent - changePerChar * charsToConsider
+        maxPercent - changePerChar * numberOfCharToConsiderForCalculation
     );
     return fontSizeInPercent;
 };
