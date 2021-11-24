@@ -23,6 +23,13 @@ npm start
 npm run deploy
 ```
 
+## Todo 
+
+- Turn into PWA 
+- Prevent division by 0 
+- Replace eval calculation by concatenating functions 
+- Refractor renaming "keys" to "input" or something similar (funtionality has outgrown the name far too much)
+
 
 
 

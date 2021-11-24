@@ -36,7 +36,7 @@ h3{
 }
 
 .screen h3 i{
-    transform: scale(0.8);
+    transform: scale(0.6);
     -webkit-text-stroke: 0.15vh var(--color-neutral);
     margin:0 0.5vh;
 }

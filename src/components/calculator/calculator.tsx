@@ -2,16 +2,22 @@ import { useState } from "react";
 import Casing from "../casing/casing";
 import { Key, ZERO, MINUS, EQUALS } from "../../utils/keys";
 import { stringToKey } from "../../utils/string-to-key";
+import { formatSolution } from "../../utils/math-helper";
 
 export default function Calculator() {
     const [pressedKeys, setPressedKeys] = useState<Key[]>([ZERO]);
     const [prevPressedKeys, setPrevPressedKeys] = useState<Key[]>([]);
 
-    const solution = calculate(
-        getKeysToCalculate(pressedKeys).reduce<string>((acc: string, cur) => {
-            return acc + cur.mathFunction;
-        }, "")
-    ).toString();
+    const solution = formatSolution(
+        calculate(
+            getKeysToCalculate(pressedKeys).reduce<string>(
+                (acc: string, cur) => {
+                    return acc + cur.mathFunction;
+                },
+                ""
+            )
+        ).toString()
+    );
 
     const onAddKey = (key: Key) => {
         setPressedKeys(getNextPressedKeys(pressedKeys, key));
@@ -96,7 +102,6 @@ const getNextPressedKeys = (currentPressedKeys: Key[], newKey: Key): Key[] => {
 
     // If a comma has already been pressed prevent
     // todo: Prevent multiple commas
-
     nextPressedKeys.push(newKey);
     return nextPressedKeys;
 };
