@@ -108,6 +108,15 @@ export const ZERO: Key = {
     keyStrings: ["0"],
 };
 
+export const E_NOTATION: Key = {
+    id: "E_NOTATION",
+    appearance: <span>e</span>,
+    mathFunction: "e",
+    isOperation: false,
+    canBePressedFirst: false,
+    keyStrings: [],
+};
+
 export const PLUS: Key = {
     id: "PLUS",
     appearance: <i className="fas fa-plus"></i>,
