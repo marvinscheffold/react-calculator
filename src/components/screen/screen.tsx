@@ -19,7 +19,7 @@ export default function Screen({ pressedKeys, prevPressedKeys }: Props) {
             <h1>
                 <ReactFontSizeByTextLength
                     changePerChar={8}
-                    startAtChar={10}
+                    startAtChar={9}
                     stopAtChar={12}
                 >
                     {pressedKeys.map((key, index) =>

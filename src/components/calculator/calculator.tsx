@@ -75,7 +75,7 @@ const getNextPressedKeys = (currentPressedKeys: Key[], newKey: Key): Key[] => {
     if (
         currentPressedKeys.length === 1 &&
         currentPressedKeys[0].id === ZERO.id &&
-        !newKey.isOperation
+        newKey.canBePressedFirst
     ) {
         return [newKey];
     }
