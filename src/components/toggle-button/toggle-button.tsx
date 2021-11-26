@@ -2,11 +2,12 @@ import "./toggle-button.css";
 import { ToggleButtonHalf } from "./toggle-button-half";
 import { useContext } from "react";
 import { FullScreenContext, ThemContext } from "../app/app";
+import { Themes } from "../../utils/constants/themes";
 
 export function ToggleButton() {
     const themeContext = useContext(ThemContext);
     const theme = themeContext.theme;
-    const nextTheme = theme === "light" ? "dark" : "light";
+    const nextTheme = theme === Themes.light ? Themes.dark : Themes.light;
 
     const fullScreenContext = useContext(FullScreenContext);
     const isFullScreen = fullScreenContext.isFullScreen;

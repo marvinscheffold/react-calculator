@@ -2,6 +2,7 @@ import "./app.css";
 import Calculator from "../calculator/calculator";
 import React, { useEffect, useState } from "react";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import { getUserPreferredTheme } from "../../utils/theme-helper";
 
 type ThemeContextType = {
     theme: string;
@@ -13,17 +14,16 @@ type FullScreenContextType = {
     setIsFullScreen: Function;
 };
 
-export const ThemContext = React.createContext<ThemeContextType>({
-    theme: "light",
-    setTheme: () => {},
-});
+export const ThemContext = React.createContext<ThemeContextType>(
+    {} as ThemeContextType
+);
 
 export const FullScreenContext = React.createContext<FullScreenContextType>(
     {} as FullScreenContextType
 );
 
 export function App() {
-    const [theme, setTheme] = useState("dark");
+    const [theme, setTheme] = useState(getUserPreferredTheme());
     const [isFullScreen, setIsFullScreen] = useState(false);
     const handle = useFullScreenHandle();
 
