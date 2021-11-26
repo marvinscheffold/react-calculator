@@ -7,7 +7,7 @@ import { Themes } from "../../utils/constants/themes";
 export function ToggleButton() {
     const themeContext = useContext(ThemContext);
     const theme = themeContext.theme;
-    const nextTheme = theme === Themes.light ? Themes.dark : Themes.light;
+    const nextTheme = theme === Themes.LIGHT ? Themes.DARK : Themes.LIGHT;
 
     const fullScreenContext = useContext(FullScreenContext);
     const isFullScreen = fullScreenContext.isFullScreen;

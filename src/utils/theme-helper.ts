@@ -5,8 +5,8 @@ export const getUserPreferredTheme = (): string => {
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches
     ) {
-        return Themes.dark;
+        return Themes.DARK;
     }
 
-    return Themes.light;
+    return Themes.LIGHT;
 };
