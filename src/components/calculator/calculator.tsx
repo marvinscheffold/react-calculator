@@ -2,7 +2,7 @@ import { useState } from "react";
 import Casing from "../casing/casing";
 import { Key, ZERO, MINUS, EQUALS } from "../../utils/keys";
 import { stringToKey } from "../../utils/string-to-key";
-import { formatSolution } from "../../utils/math-helper";
+import { formatSolution } from "../../utils/format-solution";
 
 export default function Calculator() {
     const [pressedKeys, setPressedKeys] = useState<Key[]>([ZERO]);

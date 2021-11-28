@@ -6,7 +6,7 @@ export type Key = {
     mathFunction: string;
     isOperation: boolean;
     canBePressedFirst: boolean;
-    keyStrings: string[];
+    keyboardOperations: string[];
 };
 
 export let TEMPLATE: Key = {
@@ -15,7 +15,7 @@ export let TEMPLATE: Key = {
     mathFunction: "",
     isOperation: false,
     canBePressedFirst: true,
-    keyStrings: [],
+    keyboardOperations: [],
 };
 
 export const ONE: Key = {
@@ -24,7 +24,7 @@ export const ONE: Key = {
     mathFunction: "1",
     isOperation: false,
     canBePressedFirst: true,
-    keyStrings: ["1"],
+    keyboardOperations: ["1"],
 };
 
 export const TWO: Key = {
@@ -33,7 +33,7 @@ export const TWO: Key = {
     mathFunction: "2",
     isOperation: false,
     canBePressedFirst: true,
-    keyStrings: ["2"],
+    keyboardOperations: ["2"],
 };
 
 export const THREE: Key = {
@@ -42,7 +42,7 @@ export const THREE: Key = {
     mathFunction: "3",
     isOperation: false,
     canBePressedFirst: true,
-    keyStrings: ["3"],
+    keyboardOperations: ["3"],
 };
 
 export const FOUR: Key = {
@@ -51,7 +51,7 @@ export const FOUR: Key = {
     mathFunction: "4",
     isOperation: false,
     canBePressedFirst: true,
-    keyStrings: ["4"],
+    keyboardOperations: ["4"],
 };
 
 export const FIVE: Key = {
@@ -60,7 +60,7 @@ export const FIVE: Key = {
     mathFunction: "5",
     isOperation: false,
     canBePressedFirst: true,
-    keyStrings: ["5"],
+    keyboardOperations: ["5"],
 };
 
 export const SIX: Key = {
@@ -69,7 +69,7 @@ export const SIX: Key = {
     mathFunction: "6",
     isOperation: false,
     canBePressedFirst: true,
-    keyStrings: ["6"],
+    keyboardOperations: ["6"],
 };
 
 export const SEVEN: Key = {
@@ -78,7 +78,7 @@ export const SEVEN: Key = {
     mathFunction: "7",
     isOperation: false,
     canBePressedFirst: true,
-    keyStrings: ["7"],
+    keyboardOperations: ["7"],
 };
 
 export const EIGHT: Key = {
@@ -87,7 +87,7 @@ export const EIGHT: Key = {
     mathFunction: "8",
     isOperation: false,
     canBePressedFirst: true,
-    keyStrings: ["8"],
+    keyboardOperations: ["8"],
 };
 
 export const NINE: Key = {
@@ -96,7 +96,7 @@ export const NINE: Key = {
     mathFunction: "9",
     isOperation: false,
     canBePressedFirst: true,
-    keyStrings: ["9"],
+    keyboardOperations: ["9"],
 };
 
 export const ZERO: Key = {
@@ -105,7 +105,7 @@ export const ZERO: Key = {
     mathFunction: "0",
     isOperation: false,
     canBePressedFirst: true,
-    keyStrings: ["0"],
+    keyboardOperations: ["0"],
 };
 
 export const E_NOTATION: Key = {
@@ -114,7 +114,7 @@ export const E_NOTATION: Key = {
     mathFunction: "e",
     isOperation: false,
     canBePressedFirst: false,
-    keyStrings: [],
+    keyboardOperations: [],
 };
 
 export const PLUS: Key = {
@@ -123,7 +123,7 @@ export const PLUS: Key = {
     mathFunction: "+",
     isOperation: true,
     canBePressedFirst: false,
-    keyStrings: ["+"],
+    keyboardOperations: ["+"],
 };
 
 export const MINUS: Key = {
@@ -132,7 +132,7 @@ export const MINUS: Key = {
     mathFunction: "-",
     isOperation: true,
     canBePressedFirst: true,
-    keyStrings: ["-"],
+    keyboardOperations: ["-"],
 };
 
 export const TIMES: Key = {
@@ -141,7 +141,7 @@ export const TIMES: Key = {
     mathFunction: "*",
     isOperation: true,
     canBePressedFirst: false,
-    keyStrings: ["*"],
+    keyboardOperations: ["*"],
 };
 
 export const COMMA: Key = {
@@ -150,7 +150,7 @@ export const COMMA: Key = {
     mathFunction: ".",
     isOperation: true,
     canBePressedFirst: false,
-    keyStrings: [",", "."],
+    keyboardOperations: [",", "."],
 };
 
 export const DIVIDE: Key = {
@@ -159,7 +159,7 @@ export const DIVIDE: Key = {
     mathFunction: "/",
     isOperation: true,
     canBePressedFirst: false,
-    keyStrings: ["shift+7"],
+    keyboardOperations: ["shift+7"],
 };
 
 export const PERCENT: Key = {
@@ -168,7 +168,7 @@ export const PERCENT: Key = {
     mathFunction: "/100",
     isOperation: false,
     canBePressedFirst: false,
-    keyStrings: ["shift+5"],
+    keyboardOperations: ["shift+5"],
 };
 
 export const NEGATE: Key = {
@@ -183,7 +183,7 @@ export const NEGATE: Key = {
     mathFunction: "*-1",
     isOperation: false,
     canBePressedFirst: false,
-    keyStrings: ["shift+1"],
+    keyboardOperations: ["shift+1"],
 };
 
 export const BACKSPACE: Key = {
@@ -192,7 +192,7 @@ export const BACKSPACE: Key = {
     mathFunction: "",
     isOperation: true,
     canBePressedFirst: false,
-    keyStrings: ["backspace"],
+    keyboardOperations: ["backspace"],
 };
 
 export const EQUALS: Key = {
@@ -201,7 +201,7 @@ export const EQUALS: Key = {
     mathFunction: "",
     isOperation: true,
     canBePressedFirst: false,
-    keyStrings: ["shift+0", "enter"],
+    keyboardOperations: ["shift+0", "enter"],
 };
 
 export const ALL_CLEAR: Key = {
@@ -210,5 +210,5 @@ export const ALL_CLEAR: Key = {
     mathFunction: "",
     isOperation: true,
     canBePressedFirst: false,
-    keyStrings: ["esc"],
+    keyboardOperations: ["esc"],
 };
