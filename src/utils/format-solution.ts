@@ -38,7 +38,7 @@ const toExponentialIfNecessary = (solution: string): string => {
     return solution;
 };
 
-// Small helper functins
+// Small helper functions
 
 const removeTrailingZerosAfterPeriod = (number: string): string => {
     const usable = parseFloat(number);
