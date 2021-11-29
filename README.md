@@ -1,6 +1,6 @@
 # React Calculator App
 
-A beautifully designed calculator app with light, dark mode and full-screen support.
+A beautifully designed calculator progressive web app with light, dark mode and full-screen support.
 
 ![Two beautiful calculators](./public/img/screenshot.png "Calculator Design")
 
@@ -25,10 +25,11 @@ npm run deploy
 
 ## Todo 
 
-- Turn into PWA 
 - Prevent division by 0 
 - Replace eval calculation by concatenating functions 
 - Refractor renaming "keys" to "input" or something similar (funtionality has outgrown the name far too much)
+
+
 
 
 
