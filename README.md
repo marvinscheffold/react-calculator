@@ -1,6 +1,6 @@
 # React Calculator App
 
-A beautifully designed calculator progressive web app with light, dark mode and full-screen support.
+A beautifully designed calculator pwa with light, dark mode and full-screen support.
 
 ![Two beautiful calculators](./public/img/screenshot.png "Calculator Design")
 
