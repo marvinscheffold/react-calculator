@@ -1,5 +1,6 @@
-const MAX_NUMBER_OF_CHARS_IN_SOLUTION = 10;
+const MAX_NUMBER_OF_CHARS_IN_SOLUTION = 9;
 const HIGHEST_NUMBER_BEFORE_EXPONENTIAL = 1e9;
+const LOWEST_NUMBER_BEFORE_EXPONENTIAL = 1e9 * -1;
 
 export const formatSolution = (solution: string): string => {
     let returnable = solution;
@@ -26,7 +27,10 @@ const roundIfNecessary = (solution: string): string => {
 const toExponentialIfNecessary = (solution: string): string => {
     const usable = parseFloat(solution);
 
-    if (usable > HIGHEST_NUMBER_BEFORE_EXPONENTIAL) {
+    if (
+        usable > HIGHEST_NUMBER_BEFORE_EXPONENTIAL ||
+        usable < LOWEST_NUMBER_BEFORE_EXPONENTIAL
+    ) {
         const exponential = usable.toExponential(
             MAX_NUMBER_OF_CHARS_IN_SOLUTION - 4
         );
