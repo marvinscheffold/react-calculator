@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Casing from "../casing/casing";
 import { Key, ZERO, MINUS, EQUALS, ANS } from "../../utils/keys";
-import { stringToTemplateKey, stringToAnsKey } from "../../utils/string-to-key";
+import { stringToSolutionKey, stringToAnsKey } from "../../utils/string-to-key";
 import { formatSolution } from "../../utils/format-solution";
 
 export default function Calculator() {
@@ -46,7 +46,7 @@ export default function Calculator() {
         if (pressedKeys.length <= 1) return;
 
         setPrevPressedKeys([...pressedKeys, EQUALS]);
-        setPressedKeys([stringToTemplateKey(solution)]);
+        setPressedKeys([stringToSolutionKey(solution)]);
         setAnsKey(stringToAnsKey(solution));
     };
 
