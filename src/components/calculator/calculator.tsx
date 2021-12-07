@@ -1,12 +1,13 @@
 import { useState } from "react";
 import Casing from "../casing/casing";
-import { Key, ZERO, MINUS, EQUALS } from "../../utils/keys";
-import { stringToKey } from "../../utils/string-to-key";
+import { Key, ZERO, MINUS, EQUALS, ANS } from "../../utils/keys";
+import { stringToTemplateKey, stringToAnsKey } from "../../utils/string-to-key";
 import { formatSolution } from "../../utils/format-solution";
 
 export default function Calculator() {
     const [pressedKeys, setPressedKeys] = useState<Key[]>([ZERO]);
     const [prevPressedKeys, setPrevPressedKeys] = useState<Key[]>([]);
+    const [ansKey, setAnsKey] = useState<Key>(ANS);
 
     const solution = formatSolution(
         calculate(
@@ -21,6 +22,7 @@ export default function Calculator() {
 
     const onAddKey = (key: Key) => {
         setPressedKeys(getNextPressedKeys(pressedKeys, key));
+        setPrevPressedKeys([ansKey]);
     };
 
     const onDeleteLastKey = () => {
@@ -37,13 +39,15 @@ export default function Calculator() {
     const onAllClear = () => {
         setPrevPressedKeys([]);
         setPressedKeys([ZERO]);
+        setAnsKey(ANS);
     };
 
     const onEqual = () => {
         if (pressedKeys.length <= 1) return;
 
         setPrevPressedKeys([...pressedKeys, EQUALS]);
-        setPressedKeys([stringToKey(solution)]);
+        setPressedKeys([stringToTemplateKey(solution)]);
+        setAnsKey(stringToAnsKey(solution));
     };
 
     return (

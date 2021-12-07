@@ -9,7 +9,7 @@ export type Key = {
     keyboardOperations: string[];
 };
 
-export let TEMPLATE: Key = {
+export const TEMPLATE: Key = {
     id: "TEMPLATE",
     appearance: <span></span>,
     mathFunction: "",
@@ -211,4 +211,13 @@ export const ALL_CLEAR: Key = {
     isOperation: true,
     canBePressedFirst: false,
     keyboardOperations: ["esc"],
+};
+
+export const ANS: Key = {
+    id: "ANS",
+    appearance: <span>Ans = 0</span>,
+    mathFunction: "0",
+    isOperation: false,
+    canBePressedFirst: true,
+    keyboardOperations: [""],
 };

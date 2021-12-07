@@ -1,5 +1,5 @@
 import * as keys from "./keys";
-import { Key, TEMPLATE } from "./keys";
+import { Key, TEMPLATE, ANS } from "./keys";
 import React from "react";
 
 /**
@@ -7,7 +7,7 @@ import React from "react";
  * Which looks like that and mathematically behaves like that
  * @param string
  */
-export const stringToKey = (string: string): Key => {
+export const stringToTemplateKey = (string: string): Key => {
     const chars = string.split("");
 
     let appearanceReactElements = [];
@@ -29,4 +29,11 @@ export const stringToKey = (string: string): Key => {
     returnable.mathFunction = mathFunctions.join("");
 
     return returnable;
+};
+
+export const stringToAnsKey = (string: string): Key => {
+    let returnbale = { ...ANS };
+    returnbale.appearance = <span>Ans = {string}</span>;
+    returnbale.mathFunction = string;
+    return returnbale;
 };
