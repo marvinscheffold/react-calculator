@@ -1,5 +1,5 @@
 import * as keys from "./keys";
-import { Key, TEMPLATE } from "./keys";
+import { Key, SOLUTION, ANS } from "./keys";
 import React from "react";
 
 /**
@@ -7,7 +7,7 @@ import React from "react";
  * Which looks like that and mathematically behaves like that
  * @param string
  */
-export const stringToKey = (string: string): Key => {
+export const stringToSolutionKey = (string: string): Key => {
     const chars = string.split("");
 
     let appearanceReactElements = [];
@@ -15,7 +15,7 @@ export const stringToKey = (string: string): Key => {
 
     for (const [index, char] of Object.entries(chars)) {
         for (const [, key] of Object.entries(keys)) {
-            if (key.mathFunction === char) {
+            if (key.mathFunction === char && key.canBeInSolution) {
                 appearanceReactElements.push(
                     React.cloneElement(key.appearance, { key: index + key.id })
                 );
@@ -24,9 +24,17 @@ export const stringToKey = (string: string): Key => {
         }
     }
 
-    let returnable = { ...TEMPLATE };
+    let returnable = { ...SOLUTION };
     returnable.appearance = <>{appearanceReactElements}</>;
     returnable.mathFunction = mathFunctions.join("");
+
+    return returnable;
+};
+
+export const stringToAnsKey = (string: string): Key => {
+    let returnable = { ...ANS };
+    returnable.appearance = <span>Ans = {string}</span>;
+    returnable.mathFunction = string;
 
     return returnable;
 };
