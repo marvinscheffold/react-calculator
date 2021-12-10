@@ -15,7 +15,7 @@
     }
 }
 
-.button:hover{
+.button:active{
     background-color: var(--color-basic--hover);
     cursor: pointer;
 }

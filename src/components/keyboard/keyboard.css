@@ -9,7 +9,6 @@
 
 @media screen and (max-height: 768px) and (max-width: 442px){
     .keyboard{
-        padding: 4.2vh;
-        grid-gap: 2.6vh;
+        grid-gap: 0;
     }
 }

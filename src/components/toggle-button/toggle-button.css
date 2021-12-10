@@ -5,21 +5,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 5vh auto;
+    margin: 5vh auto 0;
 }
 
 @media screen and (max-height: 768px) and (max-width: 442px){
     .toggle-button{
         margin: 0px auto;
         border-radius: 0px 0px 2.4vh 2.4vh;
-        padding: 1.8vh 0 1.8vh;
     }
 }
 
 .toggle-button .toggle-button-half{
     width:43%;
     height:100%;
-    padding: 1.6vh 0 1.4vh;
+    padding: 1.6vh 0.4vh 1.4vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,7 +35,8 @@
 
 @media screen and (max-width: 442px){
     .toggle-button .toggle-button-half{
-        font-size: 3vh;
+        padding: 2.8vh 0.4vh;
+        font-size: 3.2vh;
     }
 }
 
