@@ -34,6 +34,5 @@ export const stringToSolutionKey = (string: string): Key => {
 export const stringToAnsKey = (string: string): Key => {
     let returnable = { ...ANS };
     returnable.mathFunction = string;
-    console.log("stringToAnsKey", returnable);
     return returnable;
 };
