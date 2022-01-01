@@ -1,13 +1,21 @@
 import { useState } from "react";
 import Casing from "../casing/casing";
-import { Key, ZERO, MINUS, EQUALS, ANS, SOLUTION } from "../../utils/keys";
+import {
+    Key,
+    ZERO,
+    MINUS,
+    EQUALS,
+    ANS,
+    SOLUTION,
+    COMMA,
+} from "../../utils/keys";
 import { stringToSolutionKey, stringToAnsKey } from "../../utils/string-to-key";
 import { formatSolution } from "../../utils/format-solution";
 
 export default function Calculator() {
     const [pressedKeys, setPressedKeys] = useState<Key[]>([ZERO]);
     const [prevPressedKeys, setPrevPressedKeys] = useState<Key[]>([]);
-    const [ansKey, setAnsKey] = useState<Key>(ANS);
+    const [lastSolution, setLastSolution] = useState("0");
 
     const solution = formatSolution(
         calculate(
@@ -20,9 +28,14 @@ export default function Calculator() {
         ).toString()
     );
 
+    const onAnsKey = () => {
+        console.log("onAnsKey");
+        onAddKey(stringToAnsKey(lastSolution));
+    };
+
     const onAddKey = (key: Key) => {
         setPressedKeys(getNextPressedKeys(pressedKeys, key));
-        setPrevPressedKeys([ansKey]);
+        setPrevPressedKeys([ANS, EQUALS, stringToSolutionKey(lastSolution)]);
     };
 
     const onDeleteLastKey = () => {
@@ -39,19 +52,20 @@ export default function Calculator() {
     const onAllClear = () => {
         setPrevPressedKeys([]);
         setPressedKeys([ZERO]);
-        setAnsKey(ANS);
     };
 
     const onEqual = () => {
         if (pressedKeys.length <= 1) return;
-
+        setLastSolution(solution);
         setPrevPressedKeys([...pressedKeys, EQUALS]);
         setPressedKeys([stringToSolutionKey(solution)]);
-        setAnsKey(stringToAnsKey(solution));
     };
+
+    console.log(lastSolution, pressedKeys);
 
     return (
         <Casing
+            onAnsKey={onAnsKey}
             onAddKey={onAddKey}
             onDeleteLastKey={onDeleteLastKey}
             onAllClear={onAllClear}
@@ -75,14 +89,14 @@ const getNextPressedKeys = (currentPressedKeys: Key[], newKey: Key): Key[] => {
     if (currentPressedKeys.length === 0 && !newKey.canComeFirst)
         return nextPressedKeys;
 
-    // If first pressed key is SOLUTION prevent comma or number
-    // -> Prevent anything that is not an operation
+    // If first pressed key is SOLUTION and new key can come first
+    // -> Replace SOLUTION with new key
     if (
         currentPressedKeys.length === 1 &&
         currentPressedKeys[0].id === SOLUTION.id &&
-        !newKey.isMathOperation
+        newKey.canComeFirst
     ) {
-        return nextPressedKeys;
+        return [newKey];
     }
 
     // If first pressed key is a ZERO replace it with newKey
@@ -100,6 +114,17 @@ const getNextPressedKeys = (currentPressedKeys: Key[], newKey: Key): Key[] => {
         currentPressedKeys.length === 1 &&
         currentPressedKeys[0].id === MINUS.id &&
         newKey.isMathOperation
+    ) {
+        return nextPressedKeys;
+    }
+
+    // If last pressed key is operation or SOLUTION and new key is COMMA
+    // -> Do nothing
+    if (
+        (currentPressedKeys[currentPressedKeys.length - 1].isMathOperation ||
+            currentPressedKeys[currentPressedKeys.length - 1].id ==
+                SOLUTION.id) &&
+        newKey.id === COMMA.id
     ) {
         return nextPressedKeys;
     }

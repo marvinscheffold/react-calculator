@@ -2,6 +2,7 @@ import KeyboardEventHandler from "react-keyboard-event-handler";
 import * as keys from "../../utils/keys";
 
 type Props = {
+    onAnsKey: Function;
     onAddKey: Function;
     onDeleteLastKey: Function;
     onAllClear: Function;
@@ -9,6 +10,7 @@ type Props = {
 };
 
 export function KeyboardHardwareEvents({
+    onAnsKey,
     onAddKey,
     onDeleteLastKey,
     onAllClear,
@@ -99,8 +101,8 @@ export function KeyboardHardwareEvents({
                 onKeyEvent={(key, e) => onAddKey(keys.COMMA)}
             />
             <KeyboardEventHandler
-                handleKeys={keys.PERCENT.keyboardOperations}
-                onKeyEvent={(key, e) => onAddKey(keys.PERCENT)}
+                handleKeys={keys.ANS.keyboardOperations}
+                onKeyEvent={(key, e) => onAnsKey()}
             />
         </>
     );
