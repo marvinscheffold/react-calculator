@@ -29,7 +29,6 @@ export default function Calculator() {
     );
 
     const onAnsKey = () => {
-        console.log("onAnsKey");
         onAddKey(stringToAnsKey(lastSolution));
     };
 
