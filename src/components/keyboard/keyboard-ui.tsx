@@ -3,6 +3,7 @@ import { Button } from "../button/button";
 import * as keys from "../../utils/keys";
 
 type Props = {
+    onAnsKey: Function;
     onAddKey: Function;
     onDeleteLastKey: Function;
     onAllClear: Function;
@@ -10,6 +11,7 @@ type Props = {
 };
 
 export default function KeyboardUi({
+    onAnsKey,
     onAddKey,
     onDeleteLastKey,
     onAllClear,
@@ -23,8 +25,8 @@ export default function KeyboardUi({
             <Button callback={() => onAddKey(keys.NEGATE)} color={"primary"}>
                 <span>+/-</span>
             </Button>
-            <Button callback={() => onAddKey(keys.PERCENT)} color={"primary"}>
-                <i className="fas fa-percent"></i>
+            <Button callback={() => onAnsKey()} color={"primary"}>
+                <span>Ans</span>
             </Button>
             <Button callback={() => onAddKey(keys.DIVIDE)} color={"secondary"}>
                 <i className="fas fa-divide"></i>

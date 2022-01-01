@@ -263,11 +263,11 @@ export const ALL_CLEAR: Key = {
 
 export const ANS: Key = {
     id: "ANS",
-    appearance: <span>Ans = 0</span>,
+    appearance: <span>Ans</span>,
     mathFunction: "0",
     isMathOperation: false,
     canComeFirst: true,
     canComeLast: true,
     canBeInSolution: false,
-    keyboardOperations: [""],
+    keyboardOperations: ["x"],
 };
