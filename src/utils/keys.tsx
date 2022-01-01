@@ -269,5 +269,5 @@ export const ANS: Key = {
     canComeFirst: true,
     canComeLast: true,
     canBeInSolution: false,
-    keyboardOperations: ["x"],
+    keyboardOperations: ["x, a"],
 };
