@@ -60,8 +60,6 @@ export default function Calculator() {
         setPressedKeys([stringToSolutionKey(solution)]);
     };
 
-    console.log(lastSolution, pressedKeys);
-
     return (
         <Casing
             onAnsKey={onAnsKey}
