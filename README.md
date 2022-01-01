@@ -2,7 +2,7 @@
 
 A beautifully designed calculator pwa with light, dark mode and full-screen support.
 
-![Two beautiful calculators](./public/img/screenshot.png "Calculator Design")
+![Screenshot](./public/img/screenshot-01-01-22.png "Calculator Design")
 
 Original Design by [Lucia Scott](https://dribbble.com/luciascott) <br>
 All further design by me
