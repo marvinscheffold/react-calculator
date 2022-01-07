@@ -26,8 +26,7 @@ npm run deploy
 
 ## Todo 
 
-- Prevent division by 0 
-- Make app independent from outside icons or fonts by adding them to cache for pwa or prodiving fallback
+- Prevent division by 0
 - Replace eval calculation by concatenating functions 
 - Refractor renaming "keys" to "input" or something similar (funtionality has outgrown the name far too much)
 
