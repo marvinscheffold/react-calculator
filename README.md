@@ -5,7 +5,6 @@ A beautifully designed calculator pwa with light, dark mode and full-screen supp
 ![Screenshot](./public/img/screenshot-01-01-22-2.png "Calculator Design")
 
 
-
 Original Design by [Lucia Scott](https://dribbble.com/luciascott) <br>
 All further design by me
 
