@@ -1,7 +1,7 @@
 import "./screen.css";
 import { Key } from "../../utils/keys";
 import React from "react";
-import { ReactFontSizeByTextLength } from "./react-font-size-by-text-length";
+import { ReactFontSizeByTextLength } from "react-font-size-by-text-length";
 
 type Props = {
     pressedKeys: Key[];
