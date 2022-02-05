@@ -86,11 +86,14 @@ const getNextPressedKeys = (currentPressedKeys: Key[], newKey: Key): Key[] => {
     if (currentPressedKeys.length === 0 && !newKey.canComeFirst)
         return nextPressedKeys;
 
-    // If first pressed key is SOLUTION and new key can come first
+    // If first pressed key is SOLUTION
+    // and newKey can come first
+    // and newKey is NOT Operation
     // -> Replace SOLUTION with new key
     if (
         currentPressedKeys.length === 1 &&
         currentPressedKeys[0].id === SOLUTION.id &&
+        !newKey.isMathOperation &&
         newKey.canComeFirst
     ) {
         return [newKey];
