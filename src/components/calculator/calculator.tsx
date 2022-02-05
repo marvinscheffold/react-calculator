@@ -122,7 +122,7 @@ const getNextPressedKeys = (currentPressedKeys: Key[], newKey: Key): Key[] => {
     // -> Do nothing
     if (
         (currentPressedKeys[currentPressedKeys.length - 1].isMathOperation ||
-            currentPressedKeys[currentPressedKeys.length - 1].id ==
+            currentPressedKeys[currentPressedKeys.length - 1].id ===
                 SOLUTION.id) &&
         newKey.id === COMMA.id
     ) {
