@@ -24,6 +24,17 @@ export const SOLUTION: Key = {
     keyboardOperations: [],
 };
 
+export const INFINITY: Key = {
+    id: "INFINITY",
+    appearance: <span>Infinity</span>,
+    mathFunction: "Infinity",
+    isMathOperation: false,
+    canComeFirst: true,
+    canComeLast: true,
+    canBeInSolution: true,
+    keyboardOperations: [],
+};
+
 export const ONE: Key = {
     id: "ONE",
     appearance: <span>1</span>,
