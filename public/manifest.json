@@ -21,5 +21,6 @@
     "start_url": ".",
     "display": "standalone",
     "theme_color": "#2B2D37",
-    "background_color": "#F9F9F9"
+    "background_color": "#F9F9F9",
+    "description": "A beautiful calculator with light and dark mode."
 }
