@@ -105,21 +105,6 @@ registerRoute(
     })
 );
 
-// Caching JS
-registerRoute(
-    // Add in any other file extensions or routing criteria as needed.
-    ({ url }) =>
-        url.origin === self.location.origin && url.pathname.endsWith(".js"),
-    new StaleWhileRevalidate({
-        cacheName: "js",
-        plugins: [
-            // Ensure that once this runtime cache reaches a maximum size the
-            // least-recently used js files are removed.
-            new ExpirationPlugin({ maxEntries: 50 }),
-        ],
-    })
-);
-
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
 self.addEventListener("message", (event) => {
