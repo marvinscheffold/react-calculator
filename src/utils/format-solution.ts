@@ -4,9 +4,14 @@ const LOWEST_NUMBER_BEFORE_EXPONENTIAL = 1e9 * -1;
 
 export const formatSolution = (solution: string): string => {
     let returnable = solution;
+    if (isSolutionInfinity(returnable)) return solution;
     returnable = roundIfNecessary(returnable);
     returnable = toExponentialIfNecessary(returnable);
     return returnable;
+};
+
+const isSolutionInfinity = (solution: string): boolean => {
+    return solution.toLocaleLowerCase().indexOf("infinity") !== -1;
 };
 
 const roundIfNecessary = (solution: string): string => {

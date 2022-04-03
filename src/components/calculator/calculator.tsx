@@ -28,8 +28,6 @@ export default function Calculator() {
         ).toString()
     );
 
-    console.log(solution);
-
     const onAnsKey = () => {
         onAddKey(stringToAnsKey(lastSolution));
     };
