@@ -84,7 +84,37 @@ registerRoute(
         cacheName: "webfonts",
         plugins: [
             // Ensure that once this runtime cache reaches a maximum size the
-            // least-recently used images are removed.
+            // least-recently used fonts are removed.
+            new ExpirationPlugin({ maxEntries: 50 }),
+        ],
+    })
+);
+
+// Caching CSS
+registerRoute(
+    // Add in any other file extensions or routing criteria as needed.
+    ({ url }) =>
+        url.origin === self.location.origin && url.pathname.endsWith(".css"),
+    new StaleWhileRevalidate({
+        cacheName: "css",
+        plugins: [
+            // Ensure that once this runtime cache reaches a maximum size the
+            // least-recently used css files are removed.
+            new ExpirationPlugin({ maxEntries: 50 }),
+        ],
+    })
+);
+
+// Caching JS
+registerRoute(
+    // Add in any other file extensions or routing criteria as needed.
+    ({ url }) =>
+        url.origin === self.location.origin && url.pathname.endsWith(".js"),
+    new StaleWhileRevalidate({
+        cacheName: "js",
+        plugins: [
+            // Ensure that once this runtime cache reaches a maximum size the
+            // least-recently used js files are removed.
             new ExpirationPlugin({ maxEntries: 50 }),
         ],
     })
