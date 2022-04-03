@@ -26,7 +26,7 @@ npm run deploy
 
 ## Todo 
 
-- Prevent division by 0
+- Try to change color on bottom navigation bar for Mobile installed PWA 
 - Replace eval calculation by concatenating functions 
 - Refractor renaming "keys" to "input" or something similar (funtionality has outgrown the name far too much)
 
