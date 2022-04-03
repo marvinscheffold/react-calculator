@@ -29,7 +29,7 @@ export function App() {
 
     useEffect(() => {
         isFullScreen ? handle.enter() : handle.exit();
-    }, [isFullScreen]);
+    }, [isFullScreen, handle]);
 
     return (
         <FullScreen handle={handle}>
